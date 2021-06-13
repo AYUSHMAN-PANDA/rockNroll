@@ -22,11 +22,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun rollDice() {
-        val dice=Dice(6)
-        val result = dice.roll()
+        val dice1=Dice(6)
+        val dice2=Dice(6)
 
-        val resultText : TextView = findViewById(R.id.textView)
-        resultText.text = result.toString()
+        val result1 = dice1.roll()
+        val result2 = dice2.roll()
+
+        val resultText1 : TextView = findViewById(R.id.textView)
+        val resultText2 : TextView = findViewById(R.id.textView3)
+
+        resultText1.text = result1.toString()
+        resultText2.text = result2.toString()
+
     }
 
     class Dice(private val no_sides: Int){
