@@ -13,19 +13,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val rollButton: Button = findViewById(R.id.button)
-
         rollButton.setOnClickListener {
-
-            rollDice()
+            rollDice1()
         }
+
+        val rollButton2: Button = findViewById(R.id.button2)
+        rollButton2.setOnClickListener {
+            rollDice2()
+        }
+
     }
 
-    private fun rollDice() {
+    private fun rollDice1() {
         val dice1=Dice(6)
-//        val dice2=Dice(6)
 
         val result1 = dice1.roll()
-//        val result2 = dice2.roll()
 
         val diceImage: ImageView = findViewById(R.id.imageView)
         var diceResult = when(result1){
@@ -39,17 +41,24 @@ class MainActivity : AppCompatActivity() {
         diceImage.setImageResource(diceResult)
         diceImage.contentDescription = result1.toString()
 
-//        val toast = Toast.makeText(this, "Dice Rolled ${result1}!", Toast.LENGTH_SHORT)
-//        toast.show()
+    }
 
-//        diceImage.setImageResource(R.drawable.dice_5)
+    private fun rollDice2() {
+        val dice=Dice(6)
 
+        val result1 = dice.roll()
 
-//        val resultText1 : TextView = findViewById(R.id.textView)
-//        val resultText2 : TextView = findViewById(R.id.textView3)
-
-//        resultText1.text = result1.toString()
-//        resultText2.text = result2.toString()
+        val diceImage: ImageView = findViewById(R.id.imageView2)
+        var diceResult = when(result1){
+            1 -> R.drawable.dice_1
+            2 -> R.drawable.dice_2
+            3 -> R.drawable.dice_3
+            4 -> R.drawable.dice_4
+            5 -> R.drawable.dice_5
+            else -> R.drawable.dice_6
+        }
+        diceImage.setImageResource(diceResult)
+        diceImage.contentDescription = result1.toString()
 
     }
 
